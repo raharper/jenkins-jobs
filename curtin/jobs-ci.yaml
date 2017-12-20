@@ -76,7 +76,8 @@
             export no_proxy=launchpad.net
 
             rm -rf curtin-*
-            git clone ${{landing_candidate}} curtin-${{BUILD_NUMBER}}
+            branch=${{landing_candidate//lp:/https://git.launchpad.net/}}
+            git clone ${{branch}} curtin-${{BUILD_NUMBER}}
             cd curtin-${{BUILD_NUMBER}}
 
             tox
